@@ -1,66 +1,42 @@
-package com.example.regform;
+package com.example.toggle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
-    EditText name, password;
+    ImageView iv;
+    Button btn;
 
-    RadioGroup gender;
+    int images[] = {
+            R.drawable.luffy,
+            R.drawable.luffy2
+    };
 
-    CheckBox terms;
-
-    Button submit;
+    int currentindex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name = findViewById(R.id.name);
-        password = findViewById(R.id.password);
-        gender = findViewById(R.id.gender);
-        terms = findViewById(R.id.terms);
-        submit = findViewById(R.id.submit);
+        iv = findViewById(R.id.imgv1);
+        btn = findViewById(R.id.btn);
+    }
 
-        submit.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if (name.getText().toString().isEmpty()) {
-                    name.setError("Enter your name");
-                    return;
-                }
+    public void Click(View view) {
 
-                if (password.getText().toString().isEmpty()) {
-                    name.setError("Enter password");
-                    return;
-                }
+        if (currentindex == 0) {
+            iv.setImageResource(images[1]);
+            currentindex = 1;
 
-                if(password.length() < 0) {
-                    password.setError("Password must contain 8 characters");
-                    return;
-                }
-
-                if (!terms.isChecked()) {
-                    Toast.makeText(MainActivity.this,
-                            "Accept terms and conditions",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Toast.makeText(MainActivity.this,
-                        "Registration Successful",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+        } else {
+            iv.setImageResource(images[0]);
+            currentindex = 0;
+        }
     }
 }

@@ -1,63 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registration Form"
-        android:textSize="24sp" />
+    tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Name"
-        android:inputType="text"/>
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Password"
-        android:inputType="textPassword"/>
-
-    <RadioGroup
-        android:id="@+id/gender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Male" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Other" />
-    </RadioGroup>
-
-    <CheckBox
-        android:id="@+id/terms"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I accept the terms and conditions"/>
+    <ImageView
+        android:id="@+id/imgv1"
+        android:layout_width="316dp"
+        android:layout_height="471dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/luffy" />
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SUBMIT">
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:onClick="Click"
+        android:text="Click" />
 
-    </Button>
-</LinearLayout>
+</FrameLayout>
