@@ -1,42 +1,46 @@
-package com.example.toggle;
+package com.example.spinner;
+
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-
 public class MainActivity extends AppCompatActivity {
 
-    ImageView iv;
-    Button btn;
-
-    int images[] = {
-            R.drawable.luffy,
-            R.drawable.luffy2
-    };
-
-    int currentindex = 0;
+    Spinner spinner;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        iv = findViewById(R.id.imgv1);
-        btn = findViewById(R.id.btn);
-    }
+        spinner = findViewById(R.id.spinner);
+        textView = findViewById(R.id.selected_text_view);
 
-    public void Click(View view) {
+        String[] items = {"None", "Java", "Python", "HTML", "C"};
 
-        if (currentindex == 0) {
-            iv.setImageResource(images[1]);
-            currentindex = 1;
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                items
+        );
 
-        } else {
-            iv.setImageResource(images[0]);
-            currentindex = 0;
-        }
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                textView.setText("Selected:" + items[position]);
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 }

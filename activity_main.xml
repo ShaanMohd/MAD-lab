@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
 
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/imgv1"
-        android:layout_width="316dp"
-        android:layout_height="471dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/luffy" />
-
-    <Button
-        android:id="@+id/btn"
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:onClick="Click"
-        android:text="Click" />
+        android:layout_height="wrap_content"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/selected_text_view"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:textSize="18sp"/>
+</LinearLayout>
